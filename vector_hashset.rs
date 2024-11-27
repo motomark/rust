@@ -9,12 +9,11 @@ fn main() {
     ip_vec.push("192.168.0.3".to_string());
     ip_vec.push("192.168.0.1".to_string());
     
-    //let mut set_alt: HashSet<String> = HashSet::new();
-    let set_alt: HashSet<String> = ip_vec.into_iter().collect();
-    let mut vac_deduped: Vec<String> = set_alt.into_iter().collect();
-    vac_deduped.sort();
+    // Collect the Vector into a HashSet - then collect a deduped Vector.
+    let mut de_duped = ip_vec.into_iter().collect::<HashSet<String>>().into_iter().collect::<Vec<String>>();
+    de_duped.sort();
 
-    for item in vac_deduped {
+     for item in de_duped {
         println!("Deduped Ip Address: {}", item);
     }
 
